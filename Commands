@@ -1,2 +1,37 @@
-To determine the class of a variable
-class(variablename)
+#To determine the class of a variable. Examples used from the HarvardX course & tal. 
+class(total)
+
+
+#To determine the structure of a data frame
+str(murders)
+
+#Show first six lines of a dataframe
+head(murders)
+
+#Length shows you how many rows of data there are
+length(murders$population) 
+#The above code will show you that there are 51 rows in the dataframe. 
+
+#Factors are stored as categorical data
+levels(murders$region) 
+shows all the unique values of region. 
+
+#Sorts in ascending order
+sort(data$WhiteElo)
+murders$state[order(murder_rate, descreasing = TRUE)]
+
+#Get the index number which has the max value
+> i_max <- which.max(data$WhiteElo)
+> i_max
+[1] 77
+> data$White[i_max]
+[1] "KeithGarrett"
+
+#Add a new column to a data frame
+murders <- mutate(murders, murder_rate = total/murders$population*1000000)
+
+#Filter based on a condition
+filter(murders, rate <0.71)
+
+#Use the select statement
+new_table <- select(murders, state, total)
