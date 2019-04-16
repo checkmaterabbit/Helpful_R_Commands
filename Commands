@@ -35,3 +35,13 @@ filter(murders, rate <0.71)
 
 #Use the select statement
 new_table <- select(murders, state, total)
+
+#Use the pipe statement
+
+murders %>% select(state, region, state) %>% filter(murders, rate < 0.71)
+
+#Code to calculate Average
+average <- mean(KID$WhiteElo)
+
+#Code to calculate Standard Deviation
+SD <- sd(KID$WhiteElo)
