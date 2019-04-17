@@ -45,3 +45,9 @@ average <- mean(KID$WhiteElo)
 
 #Code to calculate Standard Deviation
 SD <- sd(KID$WhiteElo)
+
+#Use of a simple ifelse
+a <- ifelse(tal$White == "manshuv", "White", "Black")
+
+#Use of a simple nested ifelse
+Result_1 <- ifelse(tal$Result == "1/2-1/2","Draw", (ifelse(tal$my_color == "White" & tal$Result == "1-0", "Won", "Lost")))
