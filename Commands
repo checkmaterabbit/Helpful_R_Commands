@@ -50,7 +50,8 @@ SD <- sd(KID$WhiteElo)
 a <- ifelse(tal$White == "manshuv", "White", "Black")
 
 #Use of a simple nested ifelse
-Result_1 <- ifelse(tal$Result == "1/2-1/2","Draw", (ifelse(tal$my_color == "White" & tal$Result == "1-0", "Won", "Lost")))
-
+Result_1 <- ifelse (tal$Result == "1/2-1/2", "Draw", 
++                 (ifelse(tal$White == "manshuv" &tal$Result == "1-0", "Won",
++                     (ifelse(tal$Black == "manshuv" & tal$Result == "0-1", "Won", "Lost")))))
 #Remove a column from a dataframe
 tal <- tal[,-53]
