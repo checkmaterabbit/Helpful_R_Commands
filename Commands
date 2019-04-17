@@ -55,3 +55,8 @@ Result_1 <- ifelse (tal$Result == "1/2-1/2", "Draw",
 +                     (ifelse(tal$Black == "manshuv" & tal$Result == "0-1", "Won", "Lost")))))
 #Remove a column from a dataframe
 tal <- tal[,-53]
+
+#Draw a normal curve
+p9 <- ggplot(tal, aes(x = NMoves))+
++         stat_function (fun = dnorm, color = "red", args = list(mean = mean(tal$NMoves), sd = sd(tal$NMoves)))
+
