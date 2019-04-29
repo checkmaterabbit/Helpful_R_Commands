@@ -66,3 +66,11 @@ female_percentile <- quantile(female, seq(.1, 0.9, 0.2))
 
 #ggplot cheatsheet
 https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf
+
+#Scatter Plot in gplot
+murders %>% ggplot() + geom_point(aes(x=population/10^6, y = total_gun_murders))
+
+p + geom_point(aes(population/10^6, total), size = 3) + geom_text(aes(population/10^6, total, label = abb))
+
+p <- murders %>% ggplot(aes(population/10^6, total, label = abb))
+> p+ geom_point(size = 3) + geom_text(nudge_x = 3)
