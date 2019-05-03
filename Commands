@@ -74,3 +74,14 @@ p + geom_point(aes(population/10^6, total), size = 3) + geom_text(aes(population
 
 p <- murders %>% ggplot(aes(population/10^6, total, label = abb))
 > p+ geom_point(size = 3) + geom_text(nudge_x = 3)
+
+#Murders graph
+ p <- murders %>% ggplot(aes(population/10^6, total, label = abb))
+> p+ geom_point(size = 3) + geom_text(nudge_x = 3)
+> p+ geom_point(size = 3) + geom_text(nudge_x = 0.05) 
+> p+ geom_point(size = 3) + geom_text(nudge_x = 0.05) + scale_x_log10() + scale_y_log10() + 
+xlab("Population in millions(log scale)") + ylab("Total number of murders(log scale)") + ggtitle("US Gun Murders in 2019"))
++ geom_point(aes(col=region), size=3) + geom_abline(intercept = log10(r), lty = 2, color = "darkgrey")
+
+#Heights dataframe piped to ggplot
+ p <- heights %>% ggplot()
