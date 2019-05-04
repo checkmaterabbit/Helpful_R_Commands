@@ -85,3 +85,19 @@ xlab("Population in millions(log scale)") + ylab("Total number of murders(log sc
 
 #Heights dataframe piped to ggplot
  p <- heights %>% ggplot()
+
+#Use group with geom_density
+heights %>% 
+  ggplot(aes(height, group = sex)) + geom_density()
+  
+  heights %>% 
+  ggplot(aes(height, color = sex)) + geom_density()
+  
+  #Nested if with Danile and my games
+player <- ifelse(botvinnik$White=="manshuv", "Manshu", (ifelse(botvinnik$Black=="manshuv", "Manshu", (ifelse(botvinnik$White=="Mr_Penings", "Daniel",(ifelse(botvinnik$Black=="Mr_Penings", "Daniel",  "Other")))))))
+
+OppElo <- ifelse(botvinnik$White=="manshuv", botvinnik$BlackElo, ifelse(botvinnik$Black=="manshuv", botvinnik$WhiteElo,ifelse(botvinnik$White == "Mr_Penings", botvinnik$BlackElo, ifelse(botvinnik$Black=="Mr_Penings", botvinnik$WhiteElo, "0"))))
+> botvinnik <- mutate(botvinnik, OppElo)
+
+#Coerce a column to numeric
+tal$OppElo<-as.numeric(as.character(tal$OppElo))
