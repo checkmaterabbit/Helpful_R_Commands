@@ -101,3 +101,8 @@ OppElo <- ifelse(botvinnik$White=="manshuv", botvinnik$BlackElo, ifelse(botvinni
 
 #Coerce a column to numeric
 tal$OppElo<-as.numeric(as.character(tal$OppElo))
+
+#Use group_by, summarize
+NHANES %>% filter(Gender == "male", AgeDecade == " 40-49" ) %>%  group_by(Race1) %>% summarize(average = mean(BPSysAve, na.rm = TRUE), 
+            standard_deviation = sd(BPSysAve, na.rm=TRUE)) %>% arrange(average)            
+#
